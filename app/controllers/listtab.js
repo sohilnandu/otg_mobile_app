@@ -9,7 +9,7 @@ function doTransform(model) {
 	o.name = o.FirstName +" " + o.LastName;
     o.cityState = o.City + ", " + o.State; 
     o.dollarSign = res_text;
-    o.template =  o.checkedIn ? 'checkedInTemplate' : 'notCheckedInTemplate';
+    o.template =  o.CheckedIn ? 'checkedInTemplate' : 'notCheckedInTemplate';
 	return o;
 }
 
