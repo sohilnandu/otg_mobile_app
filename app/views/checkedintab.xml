@@ -1,0 +1,30 @@
+<Alloy>	
+	<Collection src="donor" />
+	<Tab title="Checked In">
+		
+		<Window title="United Zombie College Funds">
+		    
+			<ListView id="list" defaultItemTemplate="checkedInTemplate">
+				<SearchBar barColor="#000" />
+				<Templates>
+					<ItemTemplate name="checkedInTemplate" id="checkedIn" height="80" accessoryType="Ti.UI.LIST_ACCESSORY_TYPE_CHECKMARK">						
+						<Label bindId="name" id="name"/>
+						<Label bindId="cityState" id="cityState"/>
+						<Label bindId="dollarSign" class="dollarSign"/>
+					</ItemTemplate>
+					<ItemTemplate name="notCheckedInTemplate" height="80">
+						<Label bindId="name" id="name"/>
+						<Label bindId="cityState" id="cityState"/>
+						<Label bindId="dollarSign" class="dollarSign"/>
+					</ItemTemplate>
+				</Templates>
+
+				<ListSection id="section" dataCollection="donor" dataTransform="doTransform">
+					<ListItem template="{template}" name:text="{name}" 
+						dollarSign:text="{dollarSign}" cityState:text="{cityState}"
+						searchableText="{name}"/>
+				</ListSection>
+			</ListView>
+		</Window>
+	</Tab>
+</Alloy>

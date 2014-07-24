@@ -1,0 +1,43 @@
+"#dollarSign": {
+	right: 300,
+	top: 6,
+	width: 48,
+	height: 48
+}
+"Label":{
+	left: 60,
+	color: 'black'
+}
+"#name": {
+	top: 10,
+	font: {
+		fontWeight: 'bold',
+		fontFamily: 'Helvetica Neue',
+		fontSize: 15
+	}
+}
+"#cityState": {
+	top: 25,
+	bottom: 5,
+	font: {
+		fontFamily: 'Helvetica Neue',
+		fontSize: 12
+	}
+	
+}
+"Window": {
+	backgroundColor: 'white'
+}
+"#checkedIn": {
+	height: 100 /* illustration only, won't override the XML */
+}
+"Tab[platform=ios]": {
+	 icon: "KS_nav_views.png"
+}
+".dollarSign": {
+	left: 220,
+	font: {
+		fontSize: 20
+	},
+	color: "#008000"
+}
