@@ -9,13 +9,21 @@
 	color: 'black'
 }
 "#name": {
-	top: 5,
+	top: 10,
 	font: {
-		fontWeight: 'bold'
+		fontWeight: 'bold',
+		fontFamily: 'Helvetica Neue',
+		fontSize: 15
 	}
 }
 "#cityState": {
-	top: 25
+	top: 25,
+	bottom: 5,
+	font: {
+		fontFamily: 'Helvetica Neue',
+		fontSize: 12
+	}
+	
 }
 "Window": {
 	backgroundColor: 'white'
@@ -25,4 +33,11 @@
 }
 "Tab[platform=ios]": {
 	 icon: "KS_nav_views.png"
+}
+".dollarSign": {
+	left: 220,
+	font: {
+		fontSize: 20
+	},
+	color: "#008000"
 }
