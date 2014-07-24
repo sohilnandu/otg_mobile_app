@@ -13,6 +13,9 @@ function doTransform(model) {
 	return o;
 }
 
+function checkedInFilter(collection){
+	return collection.where({CheckedIn:1}); 
+}
 // for(var i=0; i<500; i++) {
 	// res_text = '$';
 	// for(var j=0; j<i%5; j++){

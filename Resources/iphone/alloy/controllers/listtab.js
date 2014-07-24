@@ -11,7 +11,7 @@ function Controller() {
     function __alloyId26(e) {
         if (e && e.fromAdapter) return;
         var opts = __alloyId26.opts || {};
-        var models = __alloyId25.models;
+        var models = checkedInFilter(__alloyId25);
         var len = models.length;
         var __alloyId21 = [];
         for (var i = 0; len > i; i++) {
@@ -45,6 +45,11 @@ function Controller() {
         o.dollarSign = res_text;
         o.template = o.CheckedIn ? "checkedInTemplate" : "notCheckedInTemplate";
         return o;
+    }
+    function checkedInFilter(collection) {
+        return collection.where({
+            CheckedIn: 1
+        });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "listtab";
