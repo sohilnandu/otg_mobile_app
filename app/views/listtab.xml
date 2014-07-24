@@ -1,4 +1,5 @@
 <Alloy>
+	<Collection src="donor" />
 	<Tab title="ListView">
 		<Window title="ListView">
 			<ListView id="list" defaultItemTemplate="odd">
@@ -15,7 +16,8 @@
 					</ItemTemplate>
 				</Templates>
 
-				<ListSection id="section">
+				<ListSection id="section" dataCollection="donor" dataTransform="doTransform">
+					<ListItem template="{template}" name:text="{name}" dollarSign:text="{dollarSign}" cityState:text="{cityState}"/>
 				</ListSection>
 			</ListView>
 		</Window>

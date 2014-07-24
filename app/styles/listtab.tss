@@ -1,5 +1,5 @@
 "#dollarSign": {
-	left: 6,
+	right: 300,
 	top: 6,
 	width: 48,
 	height: 48

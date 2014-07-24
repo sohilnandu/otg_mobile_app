@@ -1,18 +1,32 @@
 var data = [];
-for(var i=0; i<500; i++) {
+
+function doTransform(model) {
+	var o = model.toJSON();
 	res_text = '$';
-	for(var j=0; j<i%5; j++){
+	for(var j=0; j<5; j++){
 		res_text += '$';
 	}
-    var item = {
-        name: {text: "name " + i},
-        cityState: {text: "City, State" + i},
-        dollarSign: {text: res_text},
-        template: (i%2) ? 'checkedInTemplate' : 'notCheckedInTemplate',
-    };
-    data.push(item);
+	o.name = o.FirstName +" " + o.LastName;
+    o.cityState = o.City + ", " + o.State; 
+    o.dollarSign = res_text;
+    o.template =  o.checkedIn ? 'checkedInTemplate' : 'notCheckedInTemplate';
+	return o;
 }
-$.section.setItems(data);
+
+// for(var i=0; i<500; i++) {
+	// res_text = '$';
+	// for(var j=0; j<i%5; j++){
+		// res_text += '$';
+	// }
+    // var item = {
+        // name: {text: "name " + i},
+        // cityState: {text: "City, State" + i},
+        // dollarSign: {text: res_text},
+        // template: (i%2) ? 'checkedInTemplate' : 'notCheckedInTemplate',
+    // };
+    // data.push(item);
+// }
+// $.section.setItems(data);
 
 // $.list.addEventListener('itemclick', function(e) {
     // Ti.API.info('Item ' + e.itemIndex + ' was clicked');

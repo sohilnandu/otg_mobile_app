@@ -8,6 +8,41 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
+    function __alloyId23(e) {
+        if (e && e.fromAdapter) return;
+        var opts = __alloyId23.opts || {};
+        var models = __alloyId22.models;
+        var len = models.length;
+        var __alloyId18 = [];
+        for (var i = 0; len > i; i++) {
+            var __alloyId19 = models[i];
+            __alloyId19.__transform = doTransform(__alloyId19);
+            var __alloyId21 = {
+                template: "undefined" != typeof __alloyId19.__transform["template"] ? __alloyId19.__transform["template"] : __alloyId19.get("template"),
+                name: {
+                    text: "undefined" != typeof __alloyId19.__transform["name"] ? __alloyId19.__transform["name"] : __alloyId19.get("name")
+                },
+                dollarSign: {
+                    text: "undefined" != typeof __alloyId19.__transform["dollarSign"] ? __alloyId19.__transform["dollarSign"] : __alloyId19.get("dollarSign")
+                },
+                cityState: {
+                    text: "undefined" != typeof __alloyId19.__transform["cityState"] ? __alloyId19.__transform["cityState"] : __alloyId19.get("cityState")
+                }
+            };
+            __alloyId18.push(__alloyId21);
+        }
+        opts.animation ? $.__views.section.setItems(__alloyId18, opts.animation) : $.__views.section.setItems(__alloyId18);
+    }
+    function doTransform(model) {
+        var o = model.toJSON();
+        res_text = "$";
+        for (var j = 0; 5 > j; j++) res_text += "$";
+        o.name = o.FirstName + " " + o.LastName;
+        o.cityState = o.City + ", " + o.State;
+        o.dollarSign = res_text;
+        o.template = o.checkedIn ? "checkedInTemplate" : "notCheckedInTemplate";
+        return o;
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "listtab";
     if (arguments[0]) {
@@ -17,27 +52,29 @@ function Controller() {
     }
     var $ = this;
     var exports = {};
-    $.__views.__alloyId2 = Ti.UI.createWindow({
+    Alloy.Collections.instance("donor");
+    $.__views.__alloyId5 = Ti.UI.createWindow({
         backgroundColor: "white",
         title: "ListView",
-        id: "__alloyId2"
+        id: "__alloyId5"
     });
-    var __alloyId3 = {};
-    var __alloyId5 = [];
-    var __alloyId6 = {
+    var __alloyId6 = {};
+    var __alloyId8 = [];
+    var __alloyId9 = {
         type: "Ti.UI.Label",
         bindId: "dollarSign",
         properties: {
-            left: 6,
+            left: 60,
             color: "black",
+            right: 300,
             top: 6,
             width: 48,
             height: 48,
             bindId: "dollarSign"
         }
     };
-    __alloyId5.push(__alloyId6);
-    var __alloyId7 = {
+    __alloyId8.push(__alloyId9);
+    var __alloyId10 = {
         type: "Ti.UI.Label",
         bindId: "name",
         properties: {
@@ -50,8 +87,8 @@ function Controller() {
             bindId: "name"
         }
     };
-    __alloyId5.push(__alloyId7);
-    var __alloyId8 = {
+    __alloyId8.push(__alloyId10);
+    var __alloyId11 = {
         type: "Ti.UI.Label",
         bindId: "cityState",
         properties: {
@@ -61,31 +98,32 @@ function Controller() {
             bindId: "cityState"
         }
     };
-    __alloyId5.push(__alloyId8);
-    var __alloyId4 = {
+    __alloyId8.push(__alloyId11);
+    var __alloyId7 = {
         properties: {
             height: "60",
             name: "checkedInTemplate",
             accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_CHECKMARK
         },
-        childTemplates: __alloyId5
+        childTemplates: __alloyId8
     };
-    __alloyId3["checkedInTemplate"] = __alloyId4;
-    var __alloyId11 = [];
-    var __alloyId12 = {
+    __alloyId6["checkedInTemplate"] = __alloyId7;
+    var __alloyId14 = [];
+    var __alloyId15 = {
         type: "Ti.UI.Label",
         bindId: "dollarSign",
         properties: {
-            left: 6,
+            left: 60,
             color: "black",
+            right: 300,
             top: 6,
             width: 48,
             height: 48,
             bindId: "dollarSign"
         }
     };
-    __alloyId11.push(__alloyId12);
-    var __alloyId13 = {
+    __alloyId14.push(__alloyId15);
+    var __alloyId16 = {
         type: "Ti.UI.Label",
         bindId: "name",
         properties: {
@@ -98,8 +136,8 @@ function Controller() {
             bindId: "name"
         }
     };
-    __alloyId11.push(__alloyId13);
-    var __alloyId14 = {
+    __alloyId14.push(__alloyId16);
+    var __alloyId17 = {
         type: "Ti.UI.Label",
         bindId: "cityState",
         properties: {
@@ -109,55 +147,40 @@ function Controller() {
             bindId: "cityState"
         }
     };
-    __alloyId11.push(__alloyId14);
-    var __alloyId10 = {
+    __alloyId14.push(__alloyId17);
+    var __alloyId13 = {
         properties: {
             name: "notCheckedInTemplate",
             height: "60"
         },
-        childTemplates: __alloyId11
+        childTemplates: __alloyId14
     };
-    __alloyId3["notCheckedInTemplate"] = __alloyId10;
+    __alloyId6["notCheckedInTemplate"] = __alloyId13;
     $.__views.section = Ti.UI.createListSection({
         id: "section"
     });
-    var __alloyId16 = [];
-    __alloyId16.push($.__views.section);
+    var __alloyId22 = Alloy.Collections["donor"] || donor;
+    __alloyId22.on("fetch destroy change add remove reset", __alloyId23);
+    var __alloyId24 = [];
+    __alloyId24.push($.__views.section);
     $.__views.list = Ti.UI.createListView({
-        sections: __alloyId16,
-        templates: __alloyId3,
+        sections: __alloyId24,
+        templates: __alloyId6,
         id: "list",
         defaultItemTemplate: "odd"
     });
-    $.__views.__alloyId2.add($.__views.list);
+    $.__views.__alloyId5.add($.__views.list);
     $.__views.listtab = Ti.UI.createTab({
         icon: "KS_nav_views.png",
-        window: $.__views.__alloyId2,
+        window: $.__views.__alloyId5,
         title: "ListView",
         id: "listtab"
     });
     $.__views.listtab && $.addTopLevelView($.__views.listtab);
-    exports.destroy = function() {};
+    exports.destroy = function() {
+        __alloyId22.off("fetch destroy change add remove reset", __alloyId23);
+    };
     _.extend($, $.__views);
-    var data = [];
-    for (var i = 0; 500 > i; i++) {
-        res_text = "$";
-        for (var j = 0; i % 5 > j; j++) res_text += "$";
-        var item = {
-            name: {
-                text: "name " + i
-            },
-            cityState: {
-                text: "City, State" + i
-            },
-            dollarSign: {
-                text: res_text
-            },
-            template: i % 2 ? "checkedInTemplate" : "notCheckedInTemplate"
-        };
-        data.push(item);
-    }
-    $.section.setItems(data);
     _.extend($, exports);
 }
 
