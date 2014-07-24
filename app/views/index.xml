@@ -1,5 +1,6 @@
 <Alloy>
 	<TabGroup>
 		<Require src="listtab" id="listtab"/>
+		<Require src="checkedintab" id="checkedintab"/>
 	</TabGroup>
 </Alloy>
