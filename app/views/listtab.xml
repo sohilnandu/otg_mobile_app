@@ -1,0 +1,23 @@
+<Alloy>
+	<Tab title="ListView">
+		<Window title="ListView">
+			<ListView id="list" defaultItemTemplate="odd">
+				<Templates>
+					<ItemTemplate name="checkedInTemplate" id="checkedIn" height="60" accessoryType="Ti.UI.LIST_ACCESSORY_TYPE_CHECKMARK">
+						<Label bindId="dollarSign" id="dollarSign"/>
+						<Label bindId="name" id="name"/>
+						<Label bindId="cityState" id="cityState"/>
+					</ItemTemplate>
+					<ItemTemplate name="notCheckedInTemplate" height="60">
+						<Label bindId="dollarSign" id="dollarSign"/>
+						<Label bindId="name" id="name"/>
+						<Label bindId="cityState" id="cityState"/>
+					</ItemTemplate>
+				</Templates>
+
+				<ListSection id="section">
+				</ListSection>
+			</ListView>
+		</Window>
+	</Tab>
+</Alloy>
