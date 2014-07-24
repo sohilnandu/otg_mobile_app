@@ -6,15 +6,21 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __alloyId2 = [];
+    var __alloyId27 = [];
     $.__views.listtab = Alloy.createController("listtab", {
         id: "listtab"
     });
-    __alloyId2.push($.__views.listtab.getViewEx({
+    __alloyId27.push($.__views.listtab.getViewEx({
+        recurse: true
+    }));
+    $.__views.checkedintab = Alloy.createController("checkedintab", {
+        id: "checkedintab"
+    });
+    __alloyId27.push($.__views.checkedintab.getViewEx({
         recurse: true
     }));
     $.__views.index = Ti.UI.createTabGroup({
-        tabs: __alloyId2,
+        tabs: __alloyId27,
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);

@@ -1,31 +1,31 @@
 function Controller() {
-    function __alloyId26(e) {
+    function __alloyId53(e) {
         if (e && e.fromAdapter) return;
-        var opts = __alloyId26.opts || {};
-        var models = __alloyId25.models;
+        var opts = __alloyId53.opts || {};
+        var models = __alloyId52.models;
         var len = models.length;
-        var __alloyId21 = [];
+        var __alloyId48 = [];
         for (var i = 0; len > i; i++) {
-            var __alloyId22 = models[i];
-            __alloyId22.__transform = doTransform(__alloyId22);
-            var __alloyId24 = {
-                template: "undefined" != typeof __alloyId22.__transform["template"] ? __alloyId22.__transform["template"] : __alloyId22.get("template"),
+            var __alloyId49 = models[i];
+            __alloyId49.__transform = doTransform(__alloyId49);
+            var __alloyId51 = {
+                template: "undefined" != typeof __alloyId49.__transform["template"] ? __alloyId49.__transform["template"] : __alloyId49.get("template"),
                 name: {
-                    text: "undefined" != typeof __alloyId22.__transform["name"] ? __alloyId22.__transform["name"] : __alloyId22.get("name")
+                    text: "undefined" != typeof __alloyId49.__transform["name"] ? __alloyId49.__transform["name"] : __alloyId49.get("name")
                 },
                 dollarSign: {
-                    text: "undefined" != typeof __alloyId22.__transform["dollarSign"] ? __alloyId22.__transform["dollarSign"] : __alloyId22.get("dollarSign")
+                    text: "undefined" != typeof __alloyId49.__transform["dollarSign"] ? __alloyId49.__transform["dollarSign"] : __alloyId49.get("dollarSign")
                 },
                 cityState: {
-                    text: "undefined" != typeof __alloyId22.__transform["cityState"] ? __alloyId22.__transform["cityState"] : __alloyId22.get("cityState")
+                    text: "undefined" != typeof __alloyId49.__transform["cityState"] ? __alloyId49.__transform["cityState"] : __alloyId49.get("cityState")
                 },
                 properties: {
-                    searchableText: "undefined" != typeof __alloyId22.__transform["name"] ? __alloyId22.__transform["name"] : __alloyId22.get("name")
+                    searchableText: "undefined" != typeof __alloyId49.__transform["name"] ? __alloyId49.__transform["name"] : __alloyId49.get("name")
                 }
             };
-            __alloyId21.push(__alloyId24);
+            __alloyId48.push(__alloyId51);
         }
-        opts.animation ? $.__views.section.setItems(__alloyId21, opts.animation) : $.__views.section.setItems(__alloyId21);
+        opts.animation ? $.__views.section.setItems(__alloyId48, opts.animation) : $.__views.section.setItems(__alloyId48);
     }
     function doTransform(model) {
         var o = model.toJSON();
@@ -45,18 +45,18 @@ function Controller() {
     var $ = this;
     var exports = {};
     Alloy.Collections.instance("donor");
-    $.__views.__alloyId5 = Ti.UI.createWindow({
+    $.__views.__alloyId32 = Ti.UI.createWindow({
         backgroundColor: "white",
         title: "United Zombie College Funds",
-        id: "__alloyId5"
+        id: "__alloyId32"
     });
-    $.__views.__alloyId6 = Ti.UI.createSearchBar({
+    $.__views.__alloyId33 = Ti.UI.createSearchBar({
         barColor: "#000",
-        id: "__alloyId6"
+        id: "__alloyId33"
     });
-    var __alloyId7 = {};
-    var __alloyId9 = [];
-    var __alloyId10 = {
+    var __alloyId34 = {};
+    var __alloyId36 = [];
+    var __alloyId37 = {
         type: "Ti.UI.Label",
         bindId: "name",
         properties: {
@@ -71,8 +71,8 @@ function Controller() {
             bindId: "name"
         }
     };
-    __alloyId9.push(__alloyId10);
-    var __alloyId11 = {
+    __alloyId36.push(__alloyId37);
+    var __alloyId38 = {
         type: "Ti.UI.Label",
         bindId: "cityState",
         properties: {
@@ -87,8 +87,8 @@ function Controller() {
             bindId: "cityState"
         }
     };
-    __alloyId9.push(__alloyId11);
-    var __alloyId13 = {
+    __alloyId36.push(__alloyId38);
+    var __alloyId40 = {
         type: "Ti.UI.Label",
         bindId: "dollarSign",
         properties: {
@@ -100,18 +100,18 @@ function Controller() {
             bindId: "dollarSign"
         }
     };
-    __alloyId9.push(__alloyId13);
-    var __alloyId8 = {
+    __alloyId36.push(__alloyId40);
+    var __alloyId35 = {
         properties: {
             height: "80",
             name: "checkedInTemplate",
             accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_CHECKMARK
         },
-        childTemplates: __alloyId9
+        childTemplates: __alloyId36
     };
-    __alloyId7["checkedInTemplate"] = __alloyId8;
-    var __alloyId16 = [];
-    var __alloyId17 = {
+    __alloyId34["checkedInTemplate"] = __alloyId35;
+    var __alloyId43 = [];
+    var __alloyId44 = {
         type: "Ti.UI.Label",
         bindId: "name",
         properties: {
@@ -126,8 +126,8 @@ function Controller() {
             bindId: "name"
         }
     };
-    __alloyId16.push(__alloyId17);
-    var __alloyId18 = {
+    __alloyId43.push(__alloyId44);
+    var __alloyId45 = {
         type: "Ti.UI.Label",
         bindId: "cityState",
         properties: {
@@ -142,8 +142,8 @@ function Controller() {
             bindId: "cityState"
         }
     };
-    __alloyId16.push(__alloyId18);
-    var __alloyId20 = {
+    __alloyId43.push(__alloyId45);
+    var __alloyId47 = {
         type: "Ti.UI.Label",
         bindId: "dollarSign",
         properties: {
@@ -155,39 +155,39 @@ function Controller() {
             bindId: "dollarSign"
         }
     };
-    __alloyId16.push(__alloyId20);
-    var __alloyId15 = {
+    __alloyId43.push(__alloyId47);
+    var __alloyId42 = {
         properties: {
             name: "notCheckedInTemplate",
             height: "80"
         },
-        childTemplates: __alloyId16
+        childTemplates: __alloyId43
     };
-    __alloyId7["notCheckedInTemplate"] = __alloyId15;
+    __alloyId34["notCheckedInTemplate"] = __alloyId42;
     $.__views.section = Ti.UI.createListSection({
         id: "section"
     });
-    var __alloyId25 = Alloy.Collections["donor"] || donor;
-    __alloyId25.on("fetch destroy change add remove reset", __alloyId26);
-    var __alloyId27 = [];
-    __alloyId27.push($.__views.section);
+    var __alloyId52 = Alloy.Collections["donor"] || donor;
+    __alloyId52.on("fetch destroy change add remove reset", __alloyId53);
+    var __alloyId54 = [];
+    __alloyId54.push($.__views.section);
     $.__views.list = Ti.UI.createListView({
-        sections: __alloyId27,
-        templates: __alloyId7,
-        searchView: $.__views.__alloyId6,
+        sections: __alloyId54,
+        templates: __alloyId34,
+        searchView: $.__views.__alloyId33,
         id: "list",
         defaultItemTemplate: "checkedInTemplate"
     });
-    $.__views.__alloyId5.add($.__views.list);
+    $.__views.__alloyId32.add($.__views.list);
     $.__views.listtab = Ti.UI.createTab({
         icon: "KS_nav_views.png",
-        window: $.__views.__alloyId5,
+        window: $.__views.__alloyId32,
         title: "AllList",
         id: "listtab"
     });
     $.__views.listtab && $.addTopLevelView($.__views.listtab);
     exports.destroy = function() {
-        __alloyId25.off("fetch destroy change add remove reset", __alloyId26);
+        __alloyId52.off("fetch destroy change add remove reset", __alloyId53);
     };
     _.extend($, $.__views);
     _.extend($, exports);
