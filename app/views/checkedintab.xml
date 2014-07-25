@@ -19,7 +19,7 @@
 					</ItemTemplate>
 				</Templates>
 
-				<ListSection id="section" dataCollection="donor" dataTransform="doTransform">
+				<ListSection id="section" dataCollection="donor" dataFilter="checkedInFilter" dataTransform="doTransform">
 					<ListItem template="{template}" name:text="{name}" 
 						dollarSign:text="{dollarSign}" cityState:text="{cityState}"
 						searchableText="{name}"/>

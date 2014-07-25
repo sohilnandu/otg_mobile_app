@@ -9,8 +9,11 @@ function doTransform(model) {
 	o.name = o.FirstName +" " + o.LastName;
     o.cityState = o.City + ", " + o.State; 
     o.dollarSign = res_text;
-    o.template =  o.checkedIn ? 'checkedInTemplate' : 'notCheckedInTemplate';
+    o.template =  o.CheckedIn ? 'checkedInTemplate' : 'notCheckedInTemplate';
 	return o;
+}
+function checkedInFilter(collection){
+	return collection.where({CheckedIn:1}); 
 }
 
 // for(var i=0; i<500; i++) {
