@@ -1,26 +1,19 @@
-// assign a ListItem template based on the contents of the model
-
-
-Ti.API.info(last_checked);
 if (!Ti.App.Properties.hasProperty('last_checked_time')) {
 	var d  = new Date();
 	var last_checked = d.getTime();
 	Ti.App.Properties.setString('last_checked_time', last_checked);
 }
-//determine if the database needs to be seeded
-Alloy.Collections.donor.deleteAll();
 
-// var fileName = 'seed_data.json'; 
-//var file = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, fileName);  
-//var json, object_name, id;   
-//var preParseData = (file.read().text); 
-//var response = JSON.parse(preParseData);
+//determine if the database needs to be seeded
+Ti.API.info("last checked in:" + last_time);
+Alloy.Collections.donor.deleteAll();
 
 
 var xhr = Ti.Network.createHTTPClient();
 xhr.onload = function() {
   // do something with the response payload
   Ti.API.info("Received text: " + this.responseText);
+
   var users = [];
   var old_last_checked = Ti.App.Properties.getString('last_checked_time');
   Ti.API.info('old_last_checked_time: ' + old_last_checked);
@@ -31,9 +24,9 @@ xhr.onload = function() {
   
   
   Alloy.Collections.donor.deleteAll();
+  
   var names = JSON.parse(this.responseText);
-   for(var i=0,j=names.length;i<j;i++) {
-       
+   for(var i=0,j=names.length;i<j;i++) {       
        var defaults = {
             "ImportId": names[i].ImportID,
             "FirstName": names[i].FirstName,
@@ -81,11 +74,16 @@ setInterval(function()
 
 fetch();
 
+
+
 // save all of the elements
 
 Ti.App.Properties.setString('seeded', 'yuppers');
 
 Alloy.Collections.donor.fetch();
+
+
+
 
 
 // for(var i=0; i<500; i++) {
