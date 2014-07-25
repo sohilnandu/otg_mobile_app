@@ -5,7 +5,6 @@ if (!Ti.App.Properties.hasProperty('last_checked_time')) {
 }
 
 //determine if the database needs to be seeded
-Ti.API.info("last checked in:" + last_time);
 Alloy.Collections.donor.deleteAll();
 
 
