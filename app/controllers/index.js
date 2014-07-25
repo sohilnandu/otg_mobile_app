@@ -3,17 +3,12 @@ Ti.API.info('seeded: ' + Ti.App.Properties.hasProperty('seeded'));
 //determine if the database needs to be seeded
 Alloy.Collections.donor.deleteAll();
 
-// var fileName = 'seed_data.json'; 
-//var file = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, fileName);  
-//var json, object_name, id;   
-//var preParseData = (file.read().text); 
-//var response = JSON.parse(preParseData);
-
 
 var xhr = Ti.Network.createHTTPClient();
 xhr.onload = function() {
   // do something with the response payload
   Ti.API.info("Received text: " + this.responseText);
+
   var users = [];
   Alloy.Collections.donor.deleteAll();
   var names = JSON.parse(this.responseText);
@@ -58,11 +53,16 @@ setTimeout(function()
 
 fetch();
 
+
+
 // save all of the elements
 
 Ti.App.Properties.setString('seeded', 'yuppers');
 
 Alloy.Collections.donor.fetch();
+
+
+
 
 
 // for(var i=0; i<500; i++) {

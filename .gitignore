@@ -4,5 +4,11 @@ build
 npm-debug.log
 tmp
 .map
+<<<<<<< Updated upstream
 Resources
 app/assets/seed_data.json
+=======
+Resources/*
+.project
+*~
+>>>>>>> Stashed changes
