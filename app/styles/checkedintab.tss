@@ -32,7 +32,7 @@
 	height: 100 /* illustration only, won't override the XML */
 }
 "Tab[platform=ios]": {
-	 icon: "KS_nav_views.png"
+	 icon: "KS_nav_ui.png"
 }
 ".dollarSign": {
 	left: 220,

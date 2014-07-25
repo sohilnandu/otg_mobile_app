@@ -77,7 +77,10 @@ function Controller() {
             };
             if (names[i].checked_in) {
                 var record_date = Date.parse(names[i].checked_in_time);
-                record_date >= parseInt(old_last_checked) && alert(names[i].FirstName + " " + names[i].LastName + " is here!!!");
+                if (record_date >= parseInt(old_last_checked)) {
+                    Ti.Media.vibrate();
+                    alert(names[i].FirstName + " " + names[i].LastName + " is here!!!");
+                }
             }
             users.push(defaults);
         }
