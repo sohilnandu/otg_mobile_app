@@ -2,10 +2,33 @@ var data = [];
 
 function doTransform(model) {
 	var o = model.toJSON();
-	res_text = '$';
-	for(var j=0; j<5; j++){
-		res_text += '$';
-	}
+	assets = o.TotalIdentifiedAssets;
+	switch(assets) {
+    case "0-0":
+        res_text = '$';
+        break;
+    case "$100,000-$499,999":
+        res_text = '$$';
+        break;
+    case "$500,000-$999,999":
+        res_text = '$$$';
+        break;
+    case "$1,000,000-$4,999,999":
+        res_text = '$$$$';
+        break;
+    case "$5,000,000-$9,999,999":
+        res_text = '$$$$$';
+        break;
+    case "$10,000,000-$24,999,999":
+        res_text = '$$$$$$';
+        break;
+    case "$25,000,000+":
+        res_text = '$$$$$$$';
+        break;
+    default:
+        res_text = '$';
+   };
+
 	o.name = o.FirstName +" " + o.LastName;
     o.cityState = o.City + ", " + o.State; 
     o.dollarSign = res_text;

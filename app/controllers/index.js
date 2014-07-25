@@ -18,26 +18,26 @@ xhr.onload = function() {
   Alloy.Collections.donor.deleteAll();
   var names = JSON.parse(this.responseText);
    for(var i=0,j=names.length;i<j;i++) {
-       		 
+       
        var defaults = {
             "ImportId": names[i].ImportID,
             "FirstName": names[i].FirstName,
             "LastName": names[i].LastName,
-            "Addr1": "",
-            "Addr2": "",
-            "City": "",
-            "State": "",
-            "DonorCategory": "",
-            "NextAskAmount": "",
-            "TotalIdentifiedAssets": "",
-            "CurrentMajor1kDonor": 0,
-            "MajorDonorWith1MMinAssets": 0,
-            "MajorUnderPerformer": 0,
-            "MajorUnderPerformingByAmount": 0,
-            "AnnualDonorWith1MMinAssets": 0,
-            "AnnualUnderPerformer": 0,
-            "AnnualUnderPerformingByAmount": 0,
-            "CheckedIn": false
+            "Addr1": names[i].Addr1,
+            "Addr2": names[i].Addr2,
+            "City": names[i].City,
+            "State": names[i].State,
+            "DonorCategory": names[i].DonorCategory,
+            "NextAskAmount": names[i].NextAskAmount,
+            "TotalIdentifiedAssets": names[i].TotalIdentifiedAssets,
+            "CurrentMajor1kDonor": names[i].CurrentMajor1kDonor,
+            "MajorDonorWith1MMinAssets": names[i].MajorDonorWith1MMAssets,
+            "MajorUnderPerformer": names[i].MajorUnderPerformer,
+            "MajorUnderPerformingByAmount": names[i].MajorUnderPerformingByAmount,
+            "AnnualDonorWith1MMinAssets": names[i].AnnualDonorWith1MMinAssets,
+            "AnnualUnderPerformer": names[i].AnnualUnderPerformer,
+            "AnnualUnderPerformingByAmount": names[i].AnnualUnderPerformingByAmount,
+            "CheckedIn": names[i].checked_in,
        };
        
         users.push(defaults);       
