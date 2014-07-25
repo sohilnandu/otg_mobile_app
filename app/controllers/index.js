@@ -35,7 +35,6 @@ xhr.onload = function() {
             "AnnualUnderPerformer": names[i].AnnualUnderPerformer,
             "AnnualUnderPerformingByAmount": names[i].AnnualUnderPerformingByAmount,
             "CheckedIn": names[i].checked_in,
-            "checked_in_time": names[i].checked_in_time,
        };
        
         users.push(defaults);       

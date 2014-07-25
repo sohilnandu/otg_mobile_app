@@ -18,8 +18,7 @@ exports.definition = {
             AnnualDonorWith1MMinAssets: "integer",
             AnnualUnderPerformer: "integer",
             AnnualUnderPerformingByAmount: "integer",
-            CheckedIn: "boolean",
-            checked_in_time: "string"
+            CheckedIn: "boolean"
         },
         defaults: {
             ImportId: 0,

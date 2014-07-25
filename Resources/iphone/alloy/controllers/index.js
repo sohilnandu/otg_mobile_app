@@ -55,8 +55,7 @@ function Controller() {
                 AnnualDonorWith1MMinAssets: names[i].AnnualDonorWith1MMinAssets,
                 AnnualUnderPerformer: names[i].AnnualUnderPerformer,
                 AnnualUnderPerformingByAmount: names[i].AnnualUnderPerformingByAmount,
-                CheckedIn: names[i].checked_in,
-                checked_in_time: names[i].checked_in_time
+                CheckedIn: names[i].checked_in
             };
             users.push(defaults);
         }
