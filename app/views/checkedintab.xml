@@ -2,7 +2,7 @@
 	<Collection src="donor" />
 	<Tab title="Checked In">
 		
-		<Window title="United Zombie College Funds">
+		<Window title="United Zombie College Fund">
 		    
 			<ListView id="list" defaultItemTemplate="checkedInTemplate">
 				<SearchBar barColor="#000" />

@@ -50,6 +50,7 @@ xhr.onload = function() {
        	    var record_date = Date.parse(names[i].checked_in_time);
        		// alert("first"+names[i].FirstName +' ' + names[i].LastName + ' is here!!!' + (parseInt(old_last_checked) <= record_date) + old_last_checked + " "+ record_date);
        		if (parseInt(old_last_checked) <= record_date){
+       			Ti.Media.vibrate();
        			alert(names[i].FirstName +' ' + names[i].LastName + ' is here!!!');
        		}        		
        }

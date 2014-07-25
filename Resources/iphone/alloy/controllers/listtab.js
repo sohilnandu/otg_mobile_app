@@ -89,7 +89,7 @@ function Controller() {
     Alloy.Collections.instance("donor");
     $.__views.__alloyId32 = Ti.UI.createWindow({
         backgroundColor: "white",
-        title: "United Zombie College Funds",
+        title: "United Zombie College Fund",
         id: "__alloyId32"
     });
     $.__views.__alloyId33 = Ti.UI.createSearchBar({
