@@ -26,7 +26,9 @@ function Controller() {
     $.__views.index && $.addTopLevelView($.__views.index);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    Ti.API.info("seeded: " + Ti.App.Properties.hasProperty("seeded"));
+    var last_time = Date();
+    Ti.App.Properties.setString("last_checked_in_time", last_time);
+    Ti.API.info("last checked in:" + last_time);
     Alloy.Collections.donor.deleteAll();
     var xhr = Ti.Network.createHTTPClient();
     xhr.onload = function() {
@@ -53,7 +55,8 @@ function Controller() {
                 AnnualDonorWith1MMinAssets: names[i].AnnualDonorWith1MMinAssets,
                 AnnualUnderPerformer: names[i].AnnualUnderPerformer,
                 AnnualUnderPerformingByAmount: names[i].AnnualUnderPerformingByAmount,
-                CheckedIn: names[i].checked_in
+                CheckedIn: names[i].checked_in,
+                checked_in_time: names[i].checked_in_time
             };
             users.push(defaults);
         }

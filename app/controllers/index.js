@@ -1,6 +1,8 @@
 // assign a ListItem template based on the contents of the model
-Ti.API.info('seeded: ' + Ti.App.Properties.hasProperty('seeded'));
+var last_time=Date();
+Ti.App.Properties.setString('last_checked_in_time', last_time);
 //determine if the database needs to be seeded
+Ti.API.info("last checked in:" + last_time);
 Alloy.Collections.donor.deleteAll();
 
 
@@ -11,9 +13,9 @@ xhr.onload = function() {
 
   var users = [];
   Alloy.Collections.donor.deleteAll();
+  
   var names = JSON.parse(this.responseText);
-   for(var i=0,j=names.length;i<j;i++) {
-       
+   for(var i=0,j=names.length;i<j;i++) {       
        var defaults = {
             "ImportId": names[i].ImportID,
             "FirstName": names[i].FirstName,
@@ -33,6 +35,7 @@ xhr.onload = function() {
             "AnnualUnderPerformer": names[i].AnnualUnderPerformer,
             "AnnualUnderPerformingByAmount": names[i].AnnualUnderPerformingByAmount,
             "CheckedIn": names[i].checked_in,
+            "checked_in_time": names[i].checked_in_time,
        };
        
         users.push(defaults);       
