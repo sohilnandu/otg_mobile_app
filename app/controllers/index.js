@@ -48,8 +48,9 @@ xhr.onload = function() {
             "CheckedIn": names[i].checked_in,
        };
        if (names[i].checked_in){
-       		alert(names[i].FirstName +' ' + names[i].LastName + ' is here!!!' + parseInt(old_last_checked) <= parseInt(names[i].checked_in_time) + old_last_checked + " "+ names[i].checked_in_time);
-       		if (parseInt(old_last_checked) <= parseInt(names[i].checked_in_time)){
+       	    var record_date = Date.parse(names[i].checked_in_time);
+       		// alert("first"+names[i].FirstName +' ' + names[i].LastName + ' is here!!!' + (parseInt(old_last_checked) <= record_date) + old_last_checked + " "+ record_date);
+       		if (parseInt(old_last_checked) <= record_date){
        			alert(names[i].FirstName +' ' + names[i].LastName + ' is here!!!');
        		}        		
        }
