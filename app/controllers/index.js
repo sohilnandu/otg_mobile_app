@@ -1,5 +1,12 @@
 // assign a ListItem template based on the contents of the model
-Ti.API.info('seeded: ' + Ti.App.Properties.hasProperty('seeded'));
+
+
+Ti.API.info(last_checked);
+if (!Ti.App.Properties.hasProperty('last_checked_time')) {
+	var d  = new Date();
+	var last_checked = d.getTime();
+	Ti.App.Properties.setString('last_checked_time', last_checked);
+}
 //determine if the database needs to be seeded
 Alloy.Collections.donor.deleteAll();
 
@@ -15,6 +22,14 @@ xhr.onload = function() {
   // do something with the response payload
   Ti.API.info("Received text: " + this.responseText);
   var users = [];
+  var old_last_checked = Ti.App.Properties.getString('last_checked_time');
+  Ti.API.info('old_last_checked_time: ' + old_last_checked);
+  
+  var d  = new Date();
+  var new_last_checked = d.getTime();
+  Ti.API.info('new: ' + new_last_checked +" "+d +" "+ (parseInt(new_last_checked) - parseInt(old_last_checked)) );
+  
+  
   Alloy.Collections.donor.deleteAll();
   var names = JSON.parse(this.responseText);
    for(var i=0,j=names.length;i<j;i++) {
@@ -39,11 +54,19 @@ xhr.onload = function() {
             "AnnualUnderPerformingByAmount": names[i].AnnualUnderPerformingByAmount,
             "CheckedIn": names[i].checked_in,
        };
+       if (names[i].checked_in){
+       		alert(names[i].FirstName +' ' + names[i].LastName + ' is here!!!' + parseInt(old_last_checked) <= parseInt(names[i].checked_in_time) + old_last_checked + " "+ names[i].checked_in_time);
+       		if (parseInt(old_last_checked) <= parseInt(names[i].checked_in_time)){
+       			alert(names[i].FirstName +' ' + names[i].LastName + ' is here!!!');
+       		}        		
+       }
+       
        
         users.push(defaults);       
     }
     Alloy.Collections.donor.reset(users);  
     Alloy.Collections.donor.saveAll();
+    Ti.App.Properties.setString('last_checked_time', new_last_checked);
 };
 
 var fetch = function() {
@@ -51,7 +74,7 @@ var fetch = function() {
   xhr.send();
 };
 
-setTimeout(function()
+setInterval(function()
 {
   fetch();
 }, 10000 );
